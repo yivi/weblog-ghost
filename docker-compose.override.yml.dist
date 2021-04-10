@@ -1,0 +1,19 @@
+version: '3.7'
+
+services:
+  ywblog:
+    image: ghost:alpine
+    volumes:
+      - ./data-dir:/var/lib/ghost/content
+    ports:
+      - "3001:2368"
+    environment:
+      url: http://yiviblog.somesite.dv
+    labels:
+      virtual.host: 'yiviblog.somesite.dv'
+      virtual.port: '2368'
+
+networks:
+  default:
+    external:
+      name: good_net
